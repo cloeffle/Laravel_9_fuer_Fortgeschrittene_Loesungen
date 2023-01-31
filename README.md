@@ -1,1 +1,1 @@
-# Laravel-9-f-r-Fortgeschrittene_Loesungen-
+# Laravel 9 für Fortgeschrittene - Lösungen
