@@ -19,13 +19,37 @@ Versuche den gezeigten Code der Lektionen nachzuvollziehen und absolviere die Ü
 
 **Lösung:**
 
-siehe letzte Übung aus dem Grundkurs!
+Anpassen der homestead.yaml Datei:
 
-https://github.com/jens-simon/Laravel_1_Grundkurs/blob/main/uebung_28.md
+```
 
-Hier wurde das Famillytree-Projekt angelegt,
+sites:
+    - map: routinglaravel.test
+      to: /home/vagrant/code/routinglaravel/public
+    - map: advanced-laravel.test
+      to: /home/vagrant/code/advanced-laravel/public
+      
+databases:
+    - routinglaravel
+    - advanced-laravel
+    
+```
+Anpassen der hosts Datei in Windows:
 
-advanced-laravel wird ebenfalls so installiert!
+```
+
+192.168.10.10		routinglaravel.test
+192.168.10.10		advanced-laravel.test
+
+```
+
+Installation von Laravel per composer in der Shell (vagrant ssh) im Ordner code (cd code):
+
+```
+
+composer create-project laravel/laravel advanced-laravel
+
+```
 
 **Test:**
 
