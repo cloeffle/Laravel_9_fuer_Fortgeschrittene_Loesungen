@@ -43,6 +43,14 @@ Anpassen der hosts Datei in Windows:
 
 ```
 
+Vagrant Box provisionieren und neustarten im Windows Homestead Verzeichnis per Shell/Terminal:
+
+```
+
+vagrant reload --provision
+
+```
+
 Installation von Laravel per composer in der Shell (vagrant ssh) im Ordner code (cd code):
 
 ```
