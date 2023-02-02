@@ -76,7 +76,7 @@ app\Http\Controllers\Auth\LoginController.php
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\SocialAuth;
+use App\Models\SocialAuth;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
