@@ -182,43 +182,42 @@ public function user()
 Im LoginController.php:
  
  ```
- public function handleProviderCallback()
-{
-    $oauthUser = Socialite::driver('github')->user();
+  public function handleProviderCallback()
+    {
+        $oauthUser     = Socialite::driver('github')->user();
 
-    $existingOAuth = SocialAuth::where('provider_name', 'github')
-        ->where('provider_id', $oauthUser->getId())
-        ->first();
+        $existingOAuth = SocialAuth::where('provider_name', 'github')
+            ->where('provider_id', $oauthUser->getId())
+            ->first();
 
-    if ($existingOAuth) {
-	
-        return $existingOAuth->user;
-		
-    } else {
-	
-        $user = User::whereEmail($oauthUser->getEmail())->first();
+        if ($existingOAuth) {
 
-        if (!$user) {
-            $user = User::create([
-                'email' => $oauthUser->getEmail(),
-                'name'  => $oauthUser->getName(),
+            $oauthUser=  $existingOAuth->user;
+
+        } else {
+
+            $user = User::whereEmail($oauthUser->getEmail())->first();
+
+            if (!$user) {
+                $user = User::create([
+                    'email' => $oauthUser->getEmail(),
+                    'name' => $oauthUser->getName(),
+                ]);
+            }
+
+            $user->oauth()->create([
+                'provider_id' => $oauthUser->getId(),
+                'provider_name' => 'github',
             ]);
+
+            $oauthUser=  $user;
         }
 
-        $user->oauth()->create([
-            'provider_id'   => $oauthUser->getId(),
-            'provider_name' => 'github',
-        ]);
+        
+        Auth::login($oauthUser, true);
 
-        return $user;
+        return redirect($this->redirectTo);
     }
-
-	
-	
-    Auth::login($oauthUser, true);
-
-    return redirect($this->redirectTo);
-}
 
 ```
 
