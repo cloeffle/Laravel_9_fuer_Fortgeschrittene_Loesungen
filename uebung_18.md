@@ -59,7 +59,7 @@ class Image extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.image'); 
+        return $this->view('mail.image');  // wenn du markdown() benutzt , funktioniert das nicht mit einem blade-Template, dafür benötigt man 2 !
     }
 }
 
@@ -69,7 +69,8 @@ class Image extends Mailable
 4.
 In resources\views\mail Ordner in der:
 
-image.blade.php einp-Tag und ein img-Tag(2 Varianten) eintragen:
+image.blade.php ei np-Tag und ein img-Tag (2 Varianten) eintragen:
+Vorsicht: sollte dein storage-Path nicht im Standard eingestellt sein, bitte die links anpassen!
 
 
 ```
@@ -78,9 +79,9 @@ image.blade.php einp-Tag und ein img-Tag(2 Varianten) eintragen:
     Bienen sind toll. Sie produzieren leckeren Honig!
 </p>
 
-<img width="100px" src="{{asset('/img/bee.jpg')}}" />
+<img width="100px" src="{{asset('storage/img/bee.jpg')}}" />
 
-<img width="100px" src="{{$message->embed(asset('/img/bee.jpg'))}}" />
+<img width="100px" src="{{$message->embed(asset('storage/img/bee.jpg'))}}" />
 
 ```
 
