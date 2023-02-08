@@ -81,6 +81,9 @@ in resources\views\mail:
 
 inspire.blade.php:
 
+Vorsicht! keinen Auto-formatter in vs-code benutzen, markdown kann eine nervige Sache sein ;-)
+
+
 ```
 @component('mail::message')
 # Quote
