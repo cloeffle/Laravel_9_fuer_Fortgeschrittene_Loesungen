@@ -34,11 +34,17 @@ Die mail entsteht im Ordner: app\Mail als UploadConfirmation.php
 
 
 3.
-In der build()-Methode die view anpassen:
+Die 3 Methoden envelope(), content() und attachments() auskommentieren oder entfernen!
+
+Die build()-Methode für die view einfügen:
 
 ```
 
-'mail.upload-confirmation'
+    public function build()
+    {
+        return $this->view('mail.upload-confirmation');
+    }
+
 
 ```
 
