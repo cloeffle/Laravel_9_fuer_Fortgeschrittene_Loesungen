@@ -145,7 +145,7 @@ $user->post()->create(['title' => 'zweiter Post', 'body' => 'das ist doch toll!'
 oder:
 
 ```
-User::create(['name' => 'Testnamet', 'email' => 'test@test.de', 'password' => '!Geheim123']);
+User::create(['name' => 'Testname', 'email' => 'test@test.de', 'password' => '!Geheim123']);
 ```
 
 
